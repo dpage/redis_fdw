@@ -66,6 +66,8 @@ password:	The password to authenticate to the Redis server with.
 Example
 -------
 
+CREATE EXTENSION redis_fdw;
+
 CREATE SERVER redis_server 
 	FOREIGN DATA WRAPPER redis_fdw 
 	OPTIONS (address '127.0.0.1', port '6379');
