@@ -751,6 +751,10 @@ redisBeginForeignScan(ForeignScanState *node, int eflags)
 	table_options.port = 0;
 	table_options.password = NULL;
 	table_options.database = 0;
+	table_options.keyprefix = NULL;
+    table_options.keyset = NULL;
+    table_options.table_type = PG_REDIS_SCALAR_TABLE;
+
 
    /* Fetch options  */
    redisGetOptions(RelationGetRelid(node->ss.ss_currentRelation), 
