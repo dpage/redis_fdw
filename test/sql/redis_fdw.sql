@@ -81,7 +81,8 @@ create foreign table db15hsa(key text, value text[])
 
 select * from db15hp order by key;
 
-select * from db15hpa order by key;
+select key, hget(value, 'k1'), hget(value, 'k2'), hget(value, 'k3'), hget(value, 'k4')
+    from db15hpa order by key;
 
 select * from db15hsa order by key;
 
@@ -163,4 +164,6 @@ select * from db15zsa order by key;
 -- all done,so now blow everything in the db away agan
 
 \! redis-cli < test/sql/redis_clean
+
+drop server localredis cascade;
 
