@@ -84,11 +84,12 @@ select * from db15hp order by key;
  hash2 | {"k1","v5","k2","v6","k3","v7","k4","v8"}
 (2 rows)
 
-select * from db15hpa order by key;
-  key  |           value           
--------+---------------------------
- hash1 | {k1,v1,k2,v2,k3,v3,k4,v4}
- hash2 | {k1,v5,k2,v6,k3,v7,k4,v8}
+select key, hget(value, 'k1'), hget(value, 'k2'), hget(value, 'k3'), hget(value, 'k4')
+    from db15hpa order by key;
+  key  | hget | hget | hget | hget
+-------+------+------+------+------
+ hash1 | v1   | v2   | v3   | v4
+ hash2 | v5   | v6   | v7   | v8
 (2 rows)
 
 select * from db15hsa order by key;
